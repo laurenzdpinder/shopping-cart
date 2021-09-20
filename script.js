@@ -1,3 +1,5 @@
+const cartItems = document.querySelector('.cart__items');
+
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -29,9 +31,8 @@ function addProduct(event) {
     .then(({ id, title, price }) => {
       const product = { sku: id, name: title, salePrice: price };
       const cartItem = createCartItemElement(product);
-      document.querySelector('.cart__items').appendChild(cartItem);
+      cartItems.appendChild(cartItem);
       
-      // console.log(cartItem);
       const localStorageList = JSON.parse(localStorage.getItem('cartProducts'));
       console.log(localStorageList);
       localStorageList.push(product);
@@ -73,7 +74,7 @@ function createProductList() {
 }
 
 function handleEmptyCartButton() {
-  const cartItems = document.querySelector('.cart__items');
+  // const cartItems = document.querySelector('.cart__items');
   const emptyCart = document.querySelector('.empty-cart');
 
   emptyCart.addEventListener('click', () => {
@@ -86,11 +87,10 @@ function initialRenderization() {
     localStorage.setItem('cartProducts', JSON.stringify([]));
   } else {
     const cartList = JSON.parse(localStorage.getItem('cartProducts'));
-    console.log(cartList);
     const listLength = cartList.length - 1;
     for (let index = 0; index <= listLength; index += 1) {
       const list = createCartItemElement(cartList[index]);
-      document.querySelector('.cart__items').appendChild(list);
+      cartItems.appendChild(list);
     }
   }
 }
