@@ -1,3 +1,13 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(50, 167, 145);
+}
+
+.header h1 {
+  color: rgb(254, 254, 254);
+}
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -12,7 +22,7 @@
 }
 
 .item {
-  border: 2px solid blue;
+  border: 2px solid rgb(50, 167, 145);
   border-radius: 5px;
   box-sizing: border-box;
   display: flex;
@@ -37,11 +47,16 @@
 }
 
 .item .item__add {
-  background-color: green;
+  background-color: rgb(50, 167, 145);
+  color: rgb(254, 254, 254);
   border: 0;
   cursor: pointer;
   margin: 0;
   padding: 5px;
+}
+
+.item .item__add:hover {
+  background-color: rgb(34, 134, 116);
 }
 
 .cart {
@@ -54,4 +69,15 @@
   flex-basis: 1;
   font-size: 16pt;
   text-align: center;
+}
+
+.empty-cart {
+  background-color: rgb(50, 167, 145);
+  color: rgb(254, 254, 254);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.empty-cart:hover {
+  background-color: rgb(34, 134, 116);
 }
