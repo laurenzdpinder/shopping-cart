@@ -1,16 +1,28 @@
 const cartItems = document.querySelector('.cart__items');
-const loading = document.querySelector('.loading');
+const loadinSection = document.querySelector('.loading-section');
 
-function addLoadingAPI() {
-  loading.innerText = 'loading...';
-}
-
-function removeLoadingAPI() {
-  loading.remove();
+function loadingAPI() {
+  if (loadinSection.children.length === 0) {
+    const loading = document.createElement('h1');
+    loading.className = 'loading';
+    loading.innerText = 'loading...';
+    loadinSection.appendChild(loading);
+  } else {
+  loadinSection.removeChild(document.querySelector('.loading'));
+  }
 }
 
 function cleanLocalStorage() {
   localStorage.setItem('cartProducts', JSON.stringify([]));
+}
+
+function handleEmptyCartButton() {
+  const emptyCart = document.querySelector('.empty-cart');
+
+  emptyCart.addEventListener('click', () => {
+    cartItems.innerText = '';
+    cleanLocalStorage();
+   });
 }
 
 function addItemToLocalStorage(product) {
@@ -63,6 +75,7 @@ function getSkuFromProductItem(item) {
 }
 
 function addProduct(event) {
+  loadingAPI();
   const itemId = getSkuFromProductItem(event.target.parentElement);
   fetch(`https://api.mercadolibre.com/items/${itemId}`)
     .then((response) => response.json())
@@ -72,7 +85,8 @@ function addProduct(event) {
       cartItems.appendChild(cartItem);
       
       addItemToLocalStorage(product);
-    });
+    })
+    .then(() => loadingAPI());
 }
 
 function createProductImageElement(imageSource) {
@@ -105,7 +119,7 @@ function createProductItemElement({ sku, name, image }) {
 }
 
 function createProductList() {
-  addLoadingAPI();
+  loadingAPI();
   fetch('https://api.mercadolibre.com/sites/MLB/search?q=computador')
   .then((response) => response.json())
   .then(({ results }) => results
@@ -114,16 +128,7 @@ function createProductList() {
       const productItem = createProductItemElement(product);
       document.querySelector('.items').appendChild(productItem);
     }))
-  .then(() => removeLoadingAPI());
-}
-
-function handleEmptyCartButton() {
-  const emptyCart = document.querySelector('.empty-cart');
-
-  emptyCart.addEventListener('click', () => {
-    cartItems.innerText = '';
-    cleanLocalStorage();
-   });
+    .then(() => loadingAPI());
 }
 
 function initialRenderization() {
