@@ -1,19 +1,21 @@
 const cartItems = document.querySelector('.cart__items');
-const loadinSection = document.querySelector('.loading-section');
+const totalPrice = document.querySelector('.total-price');
+const loadingSection = document.querySelector('.loading-section');
 
 function loadingAPI() {
-  if (loadinSection.children.length === 0) {
+  if (loadingSection.children.length === 0) {
     const loading = document.createElement('h1');
     loading.className = 'loading';
     loading.innerText = 'loading...';
-    loadinSection.appendChild(loading);
+    loadingSection.appendChild(loading);
   } else {
-  loadinSection.removeChild(document.querySelector('.loading'));
+  loadingSection.removeChild(document.querySelector('.loading'));
   }
 }
 
 function cleanLocalStorage() {
   localStorage.setItem('cartProducts', JSON.stringify([]));
+  localStorage.setItem('localPrice', JSON.stringify([]));
 }
 
 function handleEmptyCartButton() {
@@ -21,6 +23,7 @@ function handleEmptyCartButton() {
 
   emptyCart.addEventListener('click', () => {
     cartItems.innerText = '';
+    totalPrice.innerText = 0;
     cleanLocalStorage();
    });
 }
@@ -29,6 +32,24 @@ function addItemToLocalStorage(product) {
   const localStorageList = JSON.parse(localStorage.getItem('cartProducts'));
   localStorageList.push(product);
   localStorage.setItem('cartProducts', JSON.stringify(localStorageList));
+}
+
+function getPrice(price) {
+  const localPrice = JSON.parse(localStorage.getItem('localPrice'));
+  localPrice.push(price);
+  localStorage.setItem('localPrice', JSON.stringify(localPrice));
+  const teste = localPrice.reduce((cur, acc) => cur + acc, 0);
+  totalPrice.innerText = teste;
+}
+
+function updatePrice(arrayOfIds) {
+  arrayOfIds.forEach((itemId) => {
+    fetch(`https://api.mercadolibre.com/items/${itemId}`)
+    .then((response) => response.json())
+    .then(({ price }) => {
+      getPrice(price);
+    });
+  });
 }
 
 function updateLocalStorage(arrayOfIds) {
@@ -50,6 +71,7 @@ function getLocalStorageIds() {
         .split(': ')[1])[0]).join());
 
   updateLocalStorage(arrayOfIds);
+  updatePrice(arrayOfIds);
 }
 
 function cartItemClickListener(event) {
@@ -63,6 +85,7 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.addEventListener('click', (event) => {
     cartItemClickListener(event);
     cleanLocalStorage();
+    totalPrice.innerText = 0;
     if (cartItems.children.length > 0) {
     getLocalStorageIds();
     }
@@ -85,6 +108,8 @@ function addProduct(event) {
       cartItems.appendChild(cartItem);
       
       addItemToLocalStorage(product);
+
+      getPrice(price);
     })
     .then(() => loadingAPI());
 }
@@ -142,8 +167,18 @@ function initialRenderization() {
   });
 }
 
+function initialRenderization2() {
+  if (!localStorage.getItem('localPrice')) {
+    localStorage.setItem('localPrice', JSON.stringify([]));
+  }
+  const localPrice = JSON.parse(localStorage.getItem('localPrice'));
+  const teste = localPrice.reduce((cur, acc) => cur + acc, 0);
+  totalPrice.innerText = teste;
+}
+
 window.onload = () => {
   createProductList();
   handleEmptyCartButton();
   initialRenderization();
+  initialRenderization2();
 };
