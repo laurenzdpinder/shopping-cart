@@ -71,6 +71,10 @@
   text-align: center;
 }
 
+.cart .price {
+  display: flex;
+}
+
 .empty-cart {
   background-color: rgb(50, 167, 145);
   color: rgb(254, 254, 254);
