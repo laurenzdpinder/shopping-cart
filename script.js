@@ -3,7 +3,7 @@ const totalPrice = document.querySelector('.total-price');
 const loadingSection = document.querySelector('.loading-section');
 
 const setItem = (key, value) => localStorage.setItem(`${key}`, JSON.stringify(value));
-const getItem = (key) => JSON.parse(localStorage.getItem(`${key}`));
+const getItem = (key) => JSON.parse(localStorage.getItem(`${key}`)) || [];
 const cleanLocalStorage = (key) => setItem(key, []);
 const cartItemClickListener = ({ target }) => target.remove();
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
@@ -61,13 +61,13 @@ function createCartItemElement(product) {
   li.style.padding = '10px 0';
   li.addEventListener('click', ({ target }) => {
     const index = [...target.parentElement.children].indexOf(li);
-    // console.log(index);
+    console.log(localStorage.getItem('localStorageTotalPrice'));
     const localPriceArray = getItem('localStorageTotalPrice');
-    // console.log(localPriceArray);
+    console.log(localPriceArray);
     cartItemClickListener({ target });
     
     localPriceArray.splice(index, 1);
-    // console.log(localPriceArray);
+    console.log(localPriceArray);
     setItem('localStorageTotalPrice', localPriceArray);
     getTotalPrice('localStorageTotalPrice');
     updateLocalStorageCartItems();
