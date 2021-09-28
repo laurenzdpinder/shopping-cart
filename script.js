@@ -15,14 +15,14 @@ function loadingAPI() {
   const loading = document.createElement('h1');
   loading.className = 'loading';
   loading.innerText = 'loading...';
-  loading.style.display = 'flex';
   loading.style.position = 'fixed';
-  loading.style.width = '100%';
-  loading.style.height = '100%';
-  loading.style.justifyContent = 'center';
-  loading.style.alignItems = 'center';
-  loading.style.fontSize = '48px';
-  loading.style.backgroundColor = 'rgb(50, 167, 145, 0.3)';
+  // loading.style.display = 'flex';
+  // loading.style.width = '100%';
+  // loading.style.height = '100%';
+  // loading.style.justifyContent = 'center';
+  // loading.style.alignItems = 'center';
+  // loading.style.fontSize = '48px';
+  // loading.style.backgroundColor = 'rgb(50, 167, 145, 0.3)';
   loadingSection.appendChild(loading);
 }
 
