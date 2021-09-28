@@ -1,6 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(242, 255, 252);
+}
+
 .header {
   display: flex;
   justify-content: center;
+  padding: 10px;
+  margin-bottom: 20px;
   background-color: rgb(50, 167, 145);
 }
 
@@ -62,16 +74,21 @@
 .cart {
   display: flex;
   flex-basis: 30%;
+  padding: 0 20px;
   flex-flow: column wrap;
 }
 
-.cart .cart__title {
+.cart__title {
   flex-basis: 1;
   font-size: 16pt;
   text-align: center;
 }
 
-.cart .price {
+.cart__items:hover {
+  cursor: pointer;
+}
+
+.price {
   display: flex;
 }
 
@@ -79,6 +96,8 @@
   background-color: rgb(50, 167, 145);
   color: rgb(254, 254, 254);
   border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
   cursor: pointer;
 }
 
