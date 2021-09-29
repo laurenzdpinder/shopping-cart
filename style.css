@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(242, 255, 252);
+  background-color: rgb(240, 255, 245);
 }
 
 .header {
@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: rgb(50, 167, 145);
+  background-color: rgb(50, 167, 89);
 }
 
 .header h1 {
@@ -46,7 +46,7 @@ body {
 }
 
 .item {
-  border: 2px solid rgb(50, 167, 145);
+  border: 2px solid rrgb(50, 167, 89);
   border-radius: 5px;
   box-sizing: border-box;
   display: flex;
@@ -71,7 +71,7 @@ body {
 }
 
 .item .item__add {
-  background-color: rgb(50, 167, 145);
+  background-color: rgb(50, 167, 89);
   color: rgb(254, 254, 254);
   border: 0;
   cursor: pointer;
@@ -80,7 +80,7 @@ body {
 }
 
 .item .item__add:hover {
-  background-color: rgb(34, 134, 116);
+  background-color: rgb(37, 141, 71)
 }
 
 .cart {
@@ -98,7 +98,7 @@ body {
 
 .cart__item:hover {
   cursor: pointer;
-  background-color: rgb(210, 255, 244);
+  background-color: rgb(210, 255, 225);
 }
 
 .price {
@@ -106,7 +106,7 @@ body {
 }
 
 .empty-cart {
-  background-color: rgb(50, 167, 145);
+  background-color: rgb(50, 167, 89);
   color: rgb(254, 254, 254);
   border-radius: 5px;
   padding: 10px;
@@ -115,5 +115,5 @@ body {
 }
 
 .empty-cart:hover {
-  background-color: rgb(34, 134, 116);
+  background-color: rgb(37, 141, 71);
 }
