@@ -11,13 +11,25 @@ body {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
-  margin-bottom: 20px;
   background-color: rgb(50, 167, 145);
 }
 
 .header h1 {
   color: rgb(254, 254, 254);
+}
+
+.search {
+  display: flex;
+  flex-basis: 70%;
+  justify-content: center;
+  margin: 15px;
+}
+
+.search input {
+  padding: 10px;
+  width: 50%;
 }
 
 .container {
@@ -84,8 +96,9 @@ body {
   text-align: center;
 }
 
-.cart__items:hover {
+.cart__item:hover {
   cursor: pointer;
+  background-color: rgb(210, 255, 244);
 }
 
 .price {
