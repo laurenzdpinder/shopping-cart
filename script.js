@@ -9,41 +9,13 @@ const cleanLocalStorage = (key) => setItem(key, []);
 const cartItemClickListener = ({ target }) => target.remove();
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
-function createCustomElement(element, className, innerText) {
-  const e = document.createElement(element);
-  e.className = className;
-  e.innerText = innerText;
-  if (element === 'button') {
-    e.addEventListener('click', (event) => addProduct(event));
-  }
-  return e;
-}
-
-function createProductImageElement(imageSource) {
-  const img = document.createElement('img');
-  img.className = 'item__image';
-  img.src = imageSource;
-  return img;
-}
-
-function createProductItemElement({ sku, name, image, salePrice }) {
-  const section = document.createElement('section');
-  section.className = 'item';
-
-  section.appendChild(createCustomElement('span', 'item__sku', sku));
-  section.appendChild(createCustomElement('span', 'item__title', name));
-  section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('button', 'item__add',
-    `Adicionar ao carrinho! \n $${salePrice}`));
-
-  return section;
-}
-
 function loadingAPI() {
   if (loadingSection.children.length !== 0) {
     return loadingSection.removeChild(document.querySelector('.loading'));
   }
-  const loading = createCustomElement('h1', 'loading', 'loading...');
+  const loading = document.createElement('h1');
+  loading.className = 'loading';
+  loading.innerText = 'loading...';
   loading.style.position = 'fixed';
   // loading.style.display = 'flex';
   // loading.style.width = '100%';
@@ -122,6 +94,36 @@ async function addProduct({ target }) {
   getTotalPrice('localStorageTotalPrice');
   
   loadingAPI();
+}
+
+function createCustomElement(element, className, innerText) {
+  const e = document.createElement(element);
+  e.className = className;
+  e.innerText = innerText;
+  if (element === 'button') {
+    e.addEventListener('click', (event) => addProduct(event));
+  }
+  return e;
+}
+
+function createProductImageElement(imageSource) {
+  const img = document.createElement('img');
+  img.className = 'item__image';
+  img.src = imageSource;
+  return img;
+}
+
+function createProductItemElement({ sku, name, image, salePrice }) {
+  const section = document.createElement('section');
+  section.className = 'item';
+
+  section.appendChild(createCustomElement('span', 'item__sku', sku));
+  section.appendChild(createCustomElement('span', 'item__title', name));
+  section.appendChild(createProductImageElement(image));
+  section.appendChild(createCustomElement('button', 'item__add',
+    `Adicionar ao carrinho! \n $${salePrice}`));
+
+  return section;
 }
 
 function createProductObject(products) {
