@@ -17,13 +17,6 @@ function loadingAPI() {
   loading.className = 'loading';
   loading.innerText = 'loading...';
   loading.style.position = 'fixed';
-  // loading.style.display = 'flex';
-  // loading.style.width = '100%';
-  // loading.style.height = '100%';
-  // loading.style.justifyContent = 'center';
-  // loading.style.alignItems = 'center';
-  // loading.style.fontSize = '48px';
-  // loading.style.backgroundColor = 'rgb(50, 167, 145, 0.3)';
   loadingSection.appendChild(loading);
 }
 
@@ -151,9 +144,12 @@ async function searchProductList() {
   loadingAPI();
   const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${input.value}`);
   const products = await response.json();
-
-  createProductObject(products);
-
+  if (products.results.length > 0) {
+    createProductObject(products);
+  } else {
+    const message = 'Não encontramos produtos que correspondem à sua busca!';
+    items.appendChild(createCustomElement('span', 'message', message));
+  }
   input.value = '';
   loadingAPI();
 }

@@ -8,28 +8,50 @@ body {
   background-color: rgb(240, 255, 245);
 }
 
+span {
+  color: rgb(102, 102, 102);
+}
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin-bottom: 25px;
   background-color: rgb(50, 167, 89);
 }
 
 .header h1 {
+  text-align: center;
   color: rgb(254, 254, 254);
+
 }
 
 .search {
   display: flex;
-  flex-basis: 70%;
   justify-content: center;
-  margin: 15px;
+  flex-basis: 40%;
+  margin: 20px;
 }
 
 .search input {
+  flex-basis: 100%;
   padding: 10px;
-  width: 50%;
+  border-radius: 5px;
+}
+
+.search button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(254, 254, 254);
+  background-color: rgb(50, 167, 89);
+}
+
+.search button:hover {
+  background-color: rgb(37, 141, 71);
 }
 
 .container {
@@ -40,20 +62,20 @@ body {
 
 .items {
   display: flex;
-  flex-basis: 70%;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-basis: 70%;
 }
 
 .item {
-  border: 2px solid rrgb(50, 167, 89);
-  border-radius: 5px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   height: auto;
-  margin: 5px;
   width: 200px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px solid rgb(50, 167, 89);
 }
 
 .item .item__sku {
@@ -61,9 +83,9 @@ body {
 }
 
 .item .item__title {
+  text-align: center;
   flex-grow: 1;
   padding: 10px;
-  text-align: center;
 }
 
 .item .item__image {
@@ -71,12 +93,12 @@ body {
 }
 
 .item .item__add {
-  background-color: rgb(50, 167, 89);
-  color: rgb(254, 254, 254);
   border: 0;
-  cursor: pointer;
-  margin: 0;
   padding: 5px;
+  margin: 0;
+  cursor: pointer;
+  color: rgb(254, 254, 254);
+  background-color: rgb(50, 167, 89);
 }
 
 .item .item__add:hover {
@@ -85,15 +107,18 @@ body {
 
 .cart {
   display: flex;
+  flex-flow: column wrap;
   flex-basis: 30%;
   padding: 0 20px;
-  flex-flow: column wrap;
 }
 
 .cart__title {
-  flex-basis: 1;
-  font-size: 16pt;
   text-align: center;
+  flex-basis: 1;
+}
+
+.cart__item {
+  color: rgb(102, 102, 102);
 }
 
 .cart__item:hover {
@@ -106,14 +131,18 @@ body {
 }
 
 .empty-cart {
-  background-color: rgb(50, 167, 89);
-  color: rgb(254, 254, 254);
-  border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
+  border-radius: 5px;
   cursor: pointer;
+  background-color: rgb(50, 167, 89);
+  color: rgb(254, 254, 254);
 }
 
 .empty-cart:hover {
   background-color: rgb(37, 141, 71);
+}
+
+.message {
+  text-align: center;
 }
