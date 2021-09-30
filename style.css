@@ -35,13 +35,13 @@ span {
   margin: 20px;
 }
 
-.search input {
+.input {
   flex-basis: 100%;
   padding: 10px;
   border-radius: 5px;
 }
 
-.search button {
+.search-button {
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
@@ -50,7 +50,7 @@ span {
   background-color: rgb(50, 167, 89);
 }
 
-.search button:hover {
+.search-button:hover {
   background-color: rgb(37, 141, 71);
 }
 
@@ -118,6 +118,7 @@ span {
 }
 
 .cart__item {
+  padding: 10px 0;
   color: rgb(102, 102, 102);
 }
 
