@@ -25,10 +25,9 @@ span {
 .header h1 {
   text-align: center;
   color: rgb(254, 254, 254);
-
 }
 
-.search {
+.search-bar {
   display: flex;
   justify-content: center;
   flex-basis: 40%;
@@ -38,19 +37,20 @@ span {
 .input {
   flex-basis: 100%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+  background-color: rgb(254, 254, 254);
 }
 
 .search-button {
   padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
+  border-radius: 0  5px  5px 0;
   cursor: pointer;
-  color: rgb(254, 254, 254);
-  background-color: rgb(50, 167, 89);
+  color: rgb(37, 141, 71);
+  background-color: rgb(254, 254, 254);
 }
 
 .search-button:hover {
+  color: rgb(254, 254, 254);
   background-color: rgb(37, 141, 71);
 }
 
@@ -75,7 +75,7 @@ span {
   width: 200px;
   margin: 5px;
   border-radius: 5px;
-  border: 2px solid rgb(50, 167, 89);
+  border: 2px solid rgb(0, 158, 53);
 }
 
 .item .item__sku {
@@ -97,6 +97,7 @@ span {
   padding: 5px;
   margin: 0;
   cursor: pointer;
+  font-weight: bold;
   color: rgb(254, 254, 254);
   background-color: rgb(50, 167, 89);
 }
@@ -136,8 +137,9 @@ span {
   margin: 10px 0;
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgb(50, 167, 89);
+  font-weight: bold;
   color: rgb(254, 254, 254);
+  background-color: rgb(50, 167, 89);
 }
 
 .empty-cart:hover {

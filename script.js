@@ -136,20 +136,11 @@ async function createProductList(requestedProduct = 'computador') {
   loadingAPI();
 }
 
-function handleSearchButton() {
-  const searchButton = document.querySelector('.search-button');
-  searchButton.addEventListener('click', () => {
+function handleSearchBar() {
+  const searchBar = document.querySelector('.search-bar');
+  searchBar.addEventListener('submit', (event) => {
+    event.preventDefault();
     if (input.value.length > 0) {
-      items.innerHTML = '';
-      const requestedProduct = input.value;
-      createProductList(requestedProduct);
-    }
-  });
-}
-
-function handleSearchEnter() {
-  input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && input.value.length > 0) {
       items.innerHTML = '';
       const requestedProduct = input.value;
       createProductList(requestedProduct);
@@ -179,8 +170,7 @@ function getTotalPriceRenderization(key) {
 
 window.onload = () => {
   createProductList();
-  handleSearchButton();
-  handleSearchEnter();
+  handleSearchBar();
   handleEmptyCartButton();
   getCartItemsRederization('localStorageCartItems');
   getTotalPriceRenderization('localStorageTotalPrice');
