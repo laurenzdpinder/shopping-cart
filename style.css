@@ -34,33 +34,37 @@ span {
   margin: 20px;
 }
 
-.input {
+.search-bar .input {
   flex-basis: 100%;
   padding: 10px;
+  border: 0;
   border-radius: 5px 0 0 5px;
   background-color: rgb(254, 254, 254);
 }
 
-.search-button {
+.search-bar .search-button {
   padding: 10px;
-  border-radius: 0  5px  5px 0;
   cursor: pointer;
+  border: 0;
+  border-radius: 0  5px  5px 0;
   color: rgb(37, 141, 71);
   background-color: rgb(254, 254, 254);
 }
 
-.search-button:hover {
+.search-bar .search-button:hover {
   color: rgb(254, 254, 254);
   background-color: rgb(37, 141, 71);
 }
 
 .container {
+  height: calc(100vh - 130px);
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 
 .items {
+  overflow: auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -89,7 +93,10 @@ span {
 }
 
 .item .item__image {
+  object-fit: contain;
+  height: 200px;
   width: 100%;
+  background-color: white;
 }
 
 .item .item__add {
@@ -147,5 +154,8 @@ span {
 }
 
 .message {
+  display: flex;
   text-align: center;
+  padding: 45px 3px;
+  font-size: 20px;
 }
