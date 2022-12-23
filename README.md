@@ -2,7 +2,7 @@
 
 > Shopping Cart is a front-end application that allows you to search and select products, add them to the shopping cart, and remove them as needed. The application uses the Mercado Livre API to get information about the available products and categories. This project was developed early in my programming learning journey, and demonstrates my progress as a programmer.
 
-🌎 **Access the Project:** 
+🌎 **Access the Project:** https://laurenzdpinder.github.io/shopping-cart/
 
 🔗 **Compare to Updated Project:** https://project-reactstore.vercel.app/
 
