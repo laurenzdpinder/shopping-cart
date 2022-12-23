@@ -1,13 +1,48 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Shopping Cart
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+> Shopping Cart is a front-end application that allows you to search and select products, add them to the shopping cart, and remove them as needed. The application uses the Mercado Livre API to get information about the available products and categories. This project was developed early in my programming learning journey, and demonstrates my progress as a programmer.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+🌎 **Access the Project:** 
+
+🔗 **Compare to Updated Project:** https://project-reactstore.vercel.app/
+
+Note: This updated version of the project also uses the Mercado Livre API, but it was developed using a variety of advanced technologies. You can check out the technologies used in the newest version of the project by visiting the GitHub repository: https://github.com/laurenzdpinder/react-store
+
+## 🛠️ Used Technologies and Tools
+
+* HTML
+* CSS
+* JavaScript (Vanilla)
+* LocalStorage
+* Asynchronous functions
+* Fetch API
+* Mercado Livre API
+
+## 💻 How to Run the Project Locally
+
+If you want to run the project on your machine, follow these steps:
+
+1. Clone the repository using the following command:
+
+```
+git clone git@github.com:laurenzdpinder/shopping-cart.git
+```
+
+2. Enter the project folder:
+
+```
+cd shopping-cart
+```
+
+3. Open the project in your text editor.
+
+4. To launch the project in your default browser, click the "Go Live" button in your text editor. The "Go Live" button is usually located in the bottom-right corner of the text editor window. If you are using Visual Studio Code, you can also find the "Go Live" button in the "Explorer" tab in the bottom-right corner of the window.
+
+Alternatively, you can start a server by following these steps:
+
+* Open the Command Palette by pressing F1 or Ctrl + Shift + P (or Command + Shift + P on macOS) on your keyboard.
+* Type "Live Server: Open With Live Server" into the Command Palette and press Enter.
+
+The project will be available at the following URL: http://127.0.0.1:5500/
+
+You can also launch the project manually by opening the index.html file in your browser.
